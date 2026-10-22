@@ -59,6 +59,16 @@ TRACK = '''<script>
   setInterval(tick, 250); tick();
 })();
 
+
+/* live seat counter: J = a seat was taken, Shift+J = undo. Updates [data-left] and fills .seatg tiles. */
+(function(){
+  const total=(document.querySelector('.seatg')||{children:{length:15}}).children.length||15; let taken=0;
+  const upd=()=>{ document.querySelectorAll('[data-left]').forEach(e=>{ e.textContent=String(Math.max(0,total-taken)); });
+    document.querySelectorAll('.seatg').forEach(g=>[...g.children].forEach((t,k)=>t.classList.toggle('taken',k<taken))); };
+  addEventListener('keydown', e=>{ if(e.metaKey||e.ctrlKey||e.altKey) return; if(e.key==='j' && taken<total){ taken++; upd(); } else if(e.key==='J' && taken>0){ taken--; upd(); } });
+  upd();
+})();
+
 /* framework tracker: replaces the brand label on teaching slides */
 (function(){ const P=['Market','Message','Ads','Funnel','Backend'];
   document.querySelectorAll('.slide[data-part]').forEach(s=>{ const cur=+s.dataset.part, b=s.querySelector('.c-brand'); if(!b) return;
@@ -67,7 +77,7 @@ TRACK = '''<script>
     b.replaceWith(t); }); })();
 </script>
 '''
-tail = tail.replace('<tr><td>A</td><td>Reveal all steps on this slide</td></tr>', '<tr><td>A</td><td>Reveal all steps on this slide</td></tr>\n    <tr><td>T</td><td>Start / pause the 15-minute offer timer (Shift+T resets). It starts itself on How we help.</td></tr>')
+tail = tail.replace('<tr><td>A</td><td>Reveal all steps on this slide</td></tr>', '<tr><td>A</td><td>Reveal all steps on this slide</td></tr>\n    <tr><td>T</td><td>Start / pause the 15-minute offer timer (Shift+T resets). It starts itself on the Why there\'s a limit slide.</td></tr>\n    <tr><td>J</td><td>A seat was taken (Shift+J undoes). Fills the seat grid and counts down the seats left.</td></tr>')
 tail = tail.replace("show(h>=1&&h<=N ? h-1 : 0, {force:true});", "show(0, {force:true}); /* always open on slide 1, whatever the URL says */")
 tail = tail.replace('</body>', TRACK + '</body>')
 out = head + new_css + '\n' + '</style>\n</head>\n<body>\n\n<div id="stage">\n' + slides + '\n' + tail

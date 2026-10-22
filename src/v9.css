@@ -217,3 +217,29 @@
 .s-ts .tsw{margin-top:30px;background:#0B1220;border-radius:18px;padding:22px 32px;box-shadow:6px 6px 0 rgba(11,18,32,.22)}
 .s-ts .tsw b{display:block;font:800 34px/1.1 'Inter Tight',sans-serif;letter-spacing:-.02em;color:#F2B92E}
 .s-ts .tsw span{display:block;margin-top:8px;font:500 25px/1.4 var(--sans);color:#D6DDE8}
+
+/* v15 · open loops, polls, ways, cost, best/worst, seat counter */
+.s-ch .txt p.tease{margin:30px 0 0;font:600 46px/1.2 var(--hand);color:var(--gold-2);max-width:1100px;letter-spacing:0}
+.poll{position:absolute;left:0;right:0;margin:0 auto;width:max-content;bottom:14px;z-index:6;display:flex;align-items:center;gap:18px;background:#0B1220;color:#fff;border-radius:999px;padding:12px 34px 12px 14px;box-shadow:5px 5px 0 rgba(11,18,32,.25);max-width:980px}
+.poll b{font:700 14px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:#0B1220;background:#F2B92E;border-radius:999px;padding:10px 16px;white-space:nowrap}
+.poll span{font:600 28px/1.2 'Inter Tight',sans-serif;letter-spacing:-.01em}
+.s-ways .wg{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:44px}
+.s-ways .wc{background:#fff;border:3px solid #0B1220;border-radius:18px;box-shadow:6px 6px 0 #0B1220;padding:26px 26px 28px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.s-ways .wc.gold{background:#FFF6DC}
+.s-ways .wc .k{margin:0;font:700 14px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:#A9790A}
+.s-ways .wc h3{margin:6px 0 0;font:800 40px/1.05 'Inter Tight',sans-serif;letter-spacing:-.025em;color:#0B1220}
+.s-ways .wc p:not(.k){margin:0;font:400 25px/1.4 var(--sans);color:#36414F}
+.s-ways .wc .tag{margin-top:auto;align-self:flex-start;font:700 14px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#C7372F;border:2px solid #C7372F;border-radius:999px;padding:8px 14px}
+.s-ways .wc.gold .tag{color:#0B1220;background:#F2B92E;border-color:#0B1220}
+.s-cost .objg{grid-template-columns:repeat(3,1fr)}
+.s-bw .ob .k{margin:0 0 10px;font:700 16px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:#A9790A}
+.s-obj .ob.gold{background:#FFF6DC}
+.s-offer .day{margin:2px 0 0;font:600 56px/1.1 var(--hand);color:var(--pen);letter-spacing:0}
+.s-seats .seatleft{position:absolute;right:120px;top:168px;text-align:right;z-index:3}
+.s-seats .seatleft b{display:block;font:800 150px/.9 'Inter Tight',sans-serif;letter-spacing:-.04em;color:#0B1220}
+.s-seats .seatleft span{display:block;font:700 20px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:#A9790A;margin-top:6px}
+.s-seats .seatg i.taken{background:#0B1220}
+.s-seats .seatg i.taken::after{background:#F2B92E;border-color:#F2B92E}
+.s-ama .amaleft{position:absolute;right:120px;top:36%;text-align:right;z-index:3}
+.s-ama .amaleft b{display:block;font:800 230px/.85 'Inter Tight',sans-serif;letter-spacing:-.05em;color:#0B1220}
+.s-ama .amaleft span{display:block;font:700 24px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:#A9790A;margin-top:10px}
