@@ -336,3 +336,16 @@
 .s-g3 .g3t svg .f2{fill:#E2433A}
 .s-g3 .g3c b{margin-top:14px;font:800 34px/1 'Inter Tight',sans-serif;color:#0B1220}
 .s-g3 .g3c span{font:800 64px/1 'Inter Tight',sans-serif;color:#C7372F}
+
+/* v21 · what you'll learn, testing rule, own your marketing */
+.s-learn .lnl{display:grid;gap:0;margin-top:40px;border-top:3px solid #0B1220}
+.s-learn .ln{display:grid;grid-template-columns:70px 230px 1fr;gap:24px;align-items:baseline;padding:18px 0;border-bottom:1px solid rgba(11,18,32,.16)}
+.s-learn .ln i{font:700 18px/1 var(--mono);font-style:normal;letter-spacing:.18em;color:#A9790A}
+.s-learn .ln b{font:800 44px/1 'Inter Tight',sans-serif;letter-spacing:-.03em;color:#0B1220}
+.s-learn .ln p{margin:0;font:400 30px/1.35 var(--sans);color:#36414F}
+.s-learn .ln p strong{color:#0B1220;font-weight:700}
+
+.trule{margin-top:26px;background:#0B1220;border-radius:16px;padding:18px 24px;box-shadow:5px 5px 0 rgba(11,18,32,.22);max-width:760px}
+.trule b{display:block;font:800 30px/1.15 'Inter Tight',sans-serif;letter-spacing:-.02em;color:#F2B92E}
+.trule span{display:block;margin-top:6px;font:500 22px/1.35 var(--sans);color:#D6DDE8}
+.s-ways .wc h3{font-size:34px;line-height:1.1}
