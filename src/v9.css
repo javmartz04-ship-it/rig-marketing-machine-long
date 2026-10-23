@@ -297,3 +297,7 @@
 .s-inpb .pbc i{font:700 16px/1 var(--mono);font-style:normal;letter-spacing:.2em;color:#A9790A}
 .s-inpb .pbc h3{margin:12px 0 8px;font:800 40px/1.05 'Inter Tight',sans-serif;letter-spacing:-.025em;color:#0B1220}
 .s-inpb .pbc p{margin:0;font:400 24px/1.35 var(--sans);color:#36414F}
+
+/* v19 · goal banner on offer slides */
+.goalbar{position:absolute;left:50%;top:58px;transform:translateX(-50%);z-index:5;display:flex;align-items:center;gap:12px;background:#0B1220;color:#F2B92E;font:700 15px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;padding:11px 22px 11px 16px;border-radius:999px;box-shadow:4px 4px 0 rgba(11,18,32,.18);white-space:nowrap}
+.goalbar i{width:10px;height:10px;border-radius:50%;background:#F2B92E}
