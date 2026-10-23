@@ -267,3 +267,11 @@
 .s-ovw .ovi b{display:block;font:800 29px/1.15 'Inter Tight',sans-serif;letter-spacing:-.02em;color:#0B1220}
 .s-ovw .ovi span{display:block;margin-top:4px;font:400 23px/1.35 var(--sans);color:#5b6676}
 .s-ovw .ovi span em{font-style:normal;font-weight:700;color:#C7372F}
+
+/* v17 · suspense: guess the price + drumroll */
+.s-sep .spr2 .big.q{font-size:230px;color:#C7372F;margin:10px 0 0}
+.s-sep .spr2 .hand{font-size:42px}
+.s-drum .drm{display:grid;gap:18px;margin-top:46px}
+.s-drum .dr{display:flex;align-items:baseline;gap:34px;background:#fff;border:3px solid #0B1220;border-radius:18px;box-shadow:6px 6px 0 #0B1220;padding:20px 36px}
+.s-drum .dr s{font:800 96px/1 'Inter Tight',sans-serif;letter-spacing:-.04em;color:#0B1220;text-decoration-color:#C7372F;text-decoration-thickness:10px;min-width:560px}
+.s-drum .dr span{font:600 40px/1.2 var(--sans);color:#36414F}
