@@ -69,6 +69,18 @@ TRACK = '''<script>
   upd();
 })();
 
+
+/* optional slides: press O to skip every slide marked data-optional (or open with ?skipopt). Does not remove anything. */
+(function(){
+  const t=document.createElement('div'); t.id='optToast';
+  t.style.cssText='position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#0B1220;color:#F2B92E;font:700 15px/1 monospace;letter-spacing:.14em;text-transform:uppercase;padding:12px 20px;border-radius:999px;z-index:950;opacity:0;transition:opacity .2s;pointer-events:none';
+  document.body.appendChild(t); let tt=null;
+  window.__skipOpt=/[?&]skipopt/.test(location.search);
+  addEventListener('keydown', e=>{ if(e.metaKey||e.ctrlKey||e.altKey) return; if(e.key==='o'||e.key==='O'){
+    window.__skipOpt=!window.__skipOpt; t.textContent=window.__skipOpt?'Skipping optional slides':'Showing optional slides'; t.style.opacity=1; clearTimeout(tt); tt=setTimeout(()=>t.style.opacity=0,1600);
+  } });
+})();
+
 /* framework tracker: replaces the brand label on teaching slides */
 (function(){ const P=['Market','Message','Ads','Funnel','Backend'];
   document.querySelectorAll('.slide[data-part]').forEach(s=>{ const cur=+s.dataset.part, b=s.querySelector('.c-brand'); if(!b) return;
@@ -77,7 +89,13 @@ TRACK = '''<script>
     b.replaceWith(t); }); })();
 </script>
 '''
-tail = tail.replace('<tr><td>A</td><td>Reveal all steps on this slide</td></tr>', '<tr><td>A</td><td>Reveal all steps on this slide</td></tr>\n    <tr><td>T</td><td>Start / pause the 15-minute offer timer (Shift+T resets). It starts itself on the Why there\'s a limit slide.</td></tr>\n    <tr><td>J</td><td>A seat was taken (Shift+J undoes). Fills the seat grid and counts down the seats left.</td></tr>')
+# optional-slide skipping in next()/prev()
+_n="    if (cur < N-1) show(cur+1);\n  }"
+_p="    if (cur > 0) show(cur-1, {fromEnd:true});\n  }"
+assert _n in tail and _p in tail, 'next/prev not found'
+tail = tail.replace(_n, "    if (cur < N-1){ let t=cur+1; while(window.__skipOpt && t<N-1 && slides[t].hasAttribute('data-optional')) t++; show(t); }\n  }")
+tail = tail.replace(_p, "    if (cur > 0){ let t=cur-1; while(window.__skipOpt && t>0 && slides[t].hasAttribute('data-optional')) t--; show(t, {fromEnd:true}); }\n  }")
+tail = tail.replace('<tr><td>A</td><td>Reveal all steps on this slide</td></tr>', '<tr><td>A</td><td>Reveal all steps on this slide</td></tr>\n    <tr><td>T</td><td>Start / pause the 15-minute offer timer (Shift+T resets). It starts itself on the Why there\'s a limit slide.</td></tr>\n    <tr><td>O</td><td>Skip / show the optional slides (the pillar subtotals)</td></tr>\n    <tr><td>J</td><td>A seat was taken (Shift+J undoes). Fills the seat grid and counts down the seats left.</td></tr>')
 tail = tail.replace("show(h>=1&&h<=N ? h-1 : 0, {force:true});", "show(0, {force:true}); /* always open on slide 1, whatever the URL says */")
 tail = tail.replace('</body>', TRACK + '</body>')
 out = head + new_css + '\n' + '</style>\n</head>\n<body>\n\n<div id="stage">\n' + slides + '\n' + tail
