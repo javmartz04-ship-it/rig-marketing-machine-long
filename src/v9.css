@@ -354,3 +354,6 @@
 .s-lj .ljh{display:grid;grid-template-columns:1fr 1fr;gap:8px 30px;margin-top:12px}
 .s-lj .ljh span{position:relative;padding-left:26px;font:500 26px/1.3 var(--sans);color:#D6DDE8}
 .s-lj .ljh span::before{content:"";position:absolute;left:0;top:.45em;width:12px;height:12px;border-radius:3px;background:#F2B92E}
+
+/* v23 · onboarding card without a person */
+.pcard .ph.crm img{object-position:22% 10%}
